@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+  
   const [text,setText]=useState("Write something 'KrishChalla...' ")
  // const [trick,settrick]=useState('')
 
 
   const handleClick=()=>{
       setText(text.toUpperCase())
+      props.alertf('UpperCase')
       
       //settrick('upperCase')
       //showAlert(text,'success')
@@ -26,9 +28,10 @@ export default function TextForm(props) {
    const handleClearClick=()=>{
     setText('')
    }
-
+   console.log(text.split(' '))
  
   return (
+
     <>
       
       <div className="mb-3">
@@ -60,7 +63,8 @@ export default function TextForm(props) {
 
       <div className="container my-2">
           <h1>Text Summary</h1>
-          <p>{text.split(" ").length} words and {text.length} characters</p>
+          <p>{text.split(" ").filter(str => str !== "").length} words and {text.length} characters</p>
+          
           <p>{text.split(" ").length/125} Minutes to read</p>
           <h3>preview</h3>
           <p>{text}</p>

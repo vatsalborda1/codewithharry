@@ -89,9 +89,11 @@ export default function Navbar(props) {
               id="flexSwitchCheckDefault"
             />
             <label
-              className="form-check-label"
+              className="form-check-label mx-2"
               htmlFor="flexSwitchCheckDefault"
-            ></label>
+              style={{color:"green"}}
+              
+            >{props.mode} Mode Enabled</label>
           </div>
           <form className="d-flex" role="search">
             <input

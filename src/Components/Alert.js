@@ -1,13 +1,18 @@
-import React from 'react'
+import React from "react";
 
 export default function Alert(props) {
   //const [trick,settrick]=useState(props.trick)
   return (
+    props.alert &&
     <div>
-      <div className="alert alert-warning alert-dismissible fade show" role="alert">
-  ghj
-  <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      
+       <div
+        className="alert alert-warning alert-dismissible fade show"
+        role="alert"
+      >
+        {props.alert}
+       
+      </div>
     </div>
-    </div>
-  )
+  );
 }

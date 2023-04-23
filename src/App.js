@@ -11,10 +11,10 @@ function App() {
   const toggleMode=()=>{
     if(mode==='light'){
       setmode('dark')
-      setAlert('Dark mode enabled',' Successfully')
+      showAlert('Dark mode enabled')
     } else{
       setmode('light')
-      setAlert('Light mode enabled',' Successfully')
+      showAlert('Light mode enabled')
 
     }
     
@@ -23,9 +23,11 @@ function App() {
 
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (message, type) => {
-    setAlert({ msg: message, 
-              type: type });
+  const showAlert = (message) => {
+    setAlert(message);
+    setTimeout(()=>{
+      setAlert(null)
+    },3000)
   };
 
   return (
@@ -33,7 +35,7 @@ function App() {
     <>
     
     <Navbar defabt='Check' appname='TextUtil' mode={mode} toggleMode= {toggleMode}/>
-    <Alert trick={alert}/>
+    <Alert alert={alert}/>
     {/* <Aboutus/> */}
     <TextForm alertf={showAlert}/>
     
