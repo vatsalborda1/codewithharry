@@ -2,10 +2,14 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text,setText]=useState("Write something 'KrishChalla...' ")
-  
+ // const [trick,settrick]=useState('')
+
+
   const handleClick=()=>{
       setText(text.toUpperCase())
-      console.log('change',text)
+      
+      //settrick('upperCase')
+      //showAlert(text,'success')
   }
 
   const handleChange=(event)=>{
