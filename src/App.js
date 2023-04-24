@@ -5,6 +5,9 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import Alert from './Components/Alert';
 import TextForm from './Components/TextForm';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Aboutus from './Components/Aboutus';
+
 
 function App() {
   const [mode,setmode]=useState('light')
@@ -27,19 +30,29 @@ function App() {
     setAlert(message);
     setTimeout(()=>{
       setAlert(null)
-    },3000)
+    },1000)
   };
 
   return (
-    
     <>
-    
-    <Navbar defabt='Check' appname='TextUtil' mode={mode} toggleMode= {toggleMode}/>
-    <Alert alert={alert}/>
-    {/* <Aboutus/> */}
-    <TextForm alertf={showAlert}/>
-    
-    {/* <div className='container my-3 row='>
+      <Navbar
+        defabt="AboutUs"
+        appname="TextUtil"
+        mode={mode}
+        toggleMode={toggleMode}
+      />
+      <Alert alert={alert} />
+      
+        <Routes>
+          <Route exact path="/" element={<TextForm alertf={showAlert} />} />
+          <Route path="/about" element={<Aboutus />} />
+        </Routes>
+      
+
+      {/* <Aboutus/> */}
+      {/* <TextForm /> */}
+
+      {/* <div className='container my-3 row='>
     <TextForm heading="Enter your text below"/>
     </div> */}
     </>
